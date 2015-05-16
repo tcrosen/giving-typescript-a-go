@@ -1,14 +1,19 @@
-var Student = (function () {
-    function Student(firstname, middleinitial, lastname) {
-        this.firstname = firstname;
-        this.middleinitial = middleinitial;
-        this.lastname = lastname;
-        this.fullname = firstname + " " + middleinitial + " " + lastname;
+var Name = (function () {
+    function Name(first, last) {
+        this.first = first;
+        this.last = last;
     }
-    return Student;
+    Name.prototype.full = function () {
+        return this.first + ' ' + this.last;
+    };
+    return Name;
 })();
-function greeter(person) {
-    return "Hello, " + person.firstname + " " + person.lastname;
-}
-var user = new Student("Jane", "M.", "User");
-console.log(greeter(user));
+var Player = (function () {
+    function Player(name) {
+        this.name = name;
+    }
+    return Player;
+})();
+var terry = new Player(new Name('Terry', 'Rosen'));
+console.log('terry: ', terry);
+console.log('terry: ', terry.name.full());

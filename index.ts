@@ -1,19 +1,25 @@
-class Student {
-  fullname: string;
-  constructor(public firstname, public middleinitial, public lastname) {
-    this.fullname = firstname + " " + middleinitial + " " + lastname;
+class Name {
+  first: string;
+  last: string;
+
+  constructor(first: string, last: string) {
+    this.first = first;
+    this.last = last;
+  }
+
+  full() {
+    return this.first + ' ' + this.last;
   }
 }
 
-interface Person {
-  firstname: string;
-  lastname: string;
+class Player {
+  name: Name;
+  constructor(name: Name) {
+    this.name = name;
+  }
 }
 
-function greeter(person: Person) {
-  return "Hello, " + person.firstname + " " + person.lastname;
-}
+var terry = new Player(new Name('Terry', 'Rosen'));
 
-var user = new Student("Jane", "M.", "User");
-
-console.log(greeter(user));
+console.log('terry: ', terry);
+console.log('terry: ', terry.name.full());

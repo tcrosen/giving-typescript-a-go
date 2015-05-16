@@ -1,0 +1,3 @@
+```
+tsc index && node index
+```
